@@ -111,7 +111,11 @@
         <div>
             <a href="#" onclick="changeScene('entrada')">Entrada</a>
             <a href="#" onclick="changeScene('patio')">Patio</a>
-            <a href="#" onclick="changeScene('aula')">Aula</a>
+            <a href="#" onclick="changeScene('aula')">Aula 1</a>
+            <a href="#" onclick="changeScene('aula2')">Aula 2</a>
+            <a href="#" onclick="changeScene('aula3')">Aula 3</a>
+            <a href="#" onclick="changeScene('aula4')">Aula 4</a>
+            <a href="#" onclick="changeScene('direccion')">Dirección</a>
         </div>
     </div>
     <div id="panorama"></div>
@@ -146,14 +150,94 @@
                         "pitch": 5,
                         "yaw": -20,
                         "type": "scene",
-                        "text": "Ir al aula",
+                        "text": "Ir al aula 1",
                         "sceneId": "aula"
+                    },
+                    {
+                        "pitch": 5,
+                        "yaw": -40,
+                        "type": "scene",
+                        "text": "Ir al aula 2",
+                        "sceneId": "aula2"
+                    },
+                    {
+                        "pitch": 5,
+                        "yaw": -60,
+                        "type": "scene",
+                        "text": "Ir al aula 3",
+                        "sceneId": "aula3"
+                    },
+                    {
+                        "pitch": 5,
+                        "yaw": -80,
+                        "type": "scene",
+                        "text": "Ir al aula 4",
+                        "sceneId": "aula4"
+                    },
+                    {
+                        "pitch": 10,
+                        "yaw": -100,
+                        "type": "scene",
+                        "text": "Ir a la dirección",
+                        "sceneId": "direccion"
                     }
                 ]
             },
             "aula": {
                 "type": "equirectangular",
                 "panorama": "https://st3.depositphotos.com/5682598/36746/i/450/depositphotos_367467982-stock-photo-modern-interior-visualization.jpg",
+                "hotSpots": [
+                    {
+                        "pitch": 0,
+                        "yaw": 0,
+                        "type": "scene",
+                        "text": "Volver al patio",
+                        "sceneId": "patio"
+                    }
+                ]
+            },
+            "aula2": {
+                "type": "equirectangular",
+                "panorama": "https://st3.depositphotos.com/1075592/14516/i/450/depositphotos_145162375-stock-photo-empty-classroom-interior.jpg",
+                "hotSpots": [
+                    {
+                        "pitch": 0,
+                        "yaw": 0,
+                        "type": "scene",
+                        "text": "Volver al patio",
+                        "sceneId": "patio"
+                    }
+                ]
+            },
+            "aula3": {
+                "type": "equirectangular",
+                "panorama": "https://st4.depositphotos.com/19428840/24316/i/450/depositphotos_243162580-stock-photo-empty-school-classroom-elementary-school.jpg",
+                "hotSpots": [
+                    {
+                        "pitch": 0,
+                        "yaw": 0,
+                        "type": "scene",
+                        "text": "Volver al patio",
+                        "sceneId": "patio"
+                    }
+                ]
+            },
+            "aula4": {
+                "type": "equirectangular",
+                "panorama": "https://st2.depositphotos.com/1036149/11579/i/450/depositphotos_115799086-stock-photo-modern-classroom-with-laptops.jpg",
+                "hotSpots": [
+                    {
+                        "pitch": 0,
+                        "yaw": 0,
+                        "type": "scene",
+                        "text": "Volver al patio",
+                        "sceneId": "patio"
+                    }
+                ]
+            },
+            "direccion": {
+                "type": "equirectangular",
+                "panorama": "https://st3.depositphotos.com/12345678/12345/i/450/depositphotos_123456789-stock-photo-office-reception.jpg",
                 "hotSpots": [
                     {
                         "pitch": 0,
