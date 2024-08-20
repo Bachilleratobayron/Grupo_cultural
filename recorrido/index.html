@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         body, html {
             margin: 0;
@@ -27,9 +31,6 @@
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 10px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s ease;
@@ -43,19 +44,31 @@
         .navbar.scrolled {
             background-color: rgba(0, 0, 0, 1);
         }
-        .navbar a {
+        .navbar .navbar-nav .nav-link {
             color: #f0f0f0;
-            margin: 0 15px;
-            text-decoration: none;
+            margin: 0 10px;
             font-size: 18px;
-            transition: color 0.3s, transform 0.3s;
-            border-radius: 5px;
-            padding: 5px 10px;
         }
-        .navbar a:hover {
+        .navbar .navbar-nav .nav-link:hover {
             color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+        }
+        .navbar .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .navbar .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .navbar-toggler {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-toggler:hover {
+            background-color: #555;
+        }
+        .navbar-toggler:active {
+            transform: scale(0.95);
         }
         .tooltip {
             position: absolute;
@@ -98,26 +111,37 @@
             .navbar .title {
                 font-size: 20px;
             }
-            .navbar a {
+            .navbar .navbar-nav .nav-link {
                 font-size: 16px;
-                margin: 5px 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="navbar" id="navbar">
-        <div class="title">Recorrido Virtual de la Escuela</div>
-        <div>
-            <a href="#" onclick="changeScene('entrada')">Entrada</a>
-            <a href="#" onclick="changeScene('patio')">Patio</a>
-            <a href="#" onclick="changeScene('aula')">Aula 1</a>
-            <a href="#" onclick="changeScene('aula2')">Aula 2</a>
-            <a href="#" onclick="changeScene('aula3')">Aula 3</a>
-            <a href="#" onclick="changeScene('aula4')">Aula 4</a>
-            <a href="#" onclick="changeScene('direccion')">Dirección</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Recorrido Virtual de la Escuela</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Escenas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" onclick="changeScene('entrada')">Entrada</a>
+                        <a class="dropdown-item" href="#" onclick="changeScene('patio')">Patio</a>
+                        <a class="dropdown-item" href="#" onclick="changeScene('aula')">Aula 1</a>
+                        <a class="dropdown-item" href="#" onclick="changeScene('aula2')">Aula 2</a>
+                        <a class="dropdown-item" href="#" onclick="changeScene('aula3')">Aula 3</a>
+                        <a class="dropdown-item" href="#" onclick="changeScene('aula4')">Aula 4</a>
+                        <a class="dropdown-item" href="#" onclick="changeScene('direccion')">Dirección</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
     <div id="panorama"></div>
     <div class="tooltip" id="tooltip"></div>
     <script>
@@ -198,7 +222,7 @@
             },
             "aula2": {
                 "type": "equirectangular",
-                "panorama": "https://st3.depositphotos.com/1075592/14516/i/450/depositphotos_145162375-stock-photo-empty-classroom-interior.jpg",
+                "panorama": "https://st3.depositphotos.com/1075592/14516/i/450/depositphotos_145162375-stock-photo-empty-classroom.jpg",
                 "hotSpots": [
                     {
                         "pitch": 0,
@@ -211,7 +235,7 @@
             },
             "aula3": {
                 "type": "equirectangular",
-                "panorama": "https://st4.depositphotos.com/19428840/24316/i/450/depositphotos_243162580-stock-photo-empty-school-classroom-elementary-school.jpg",
+                "panorama": "https://st3.depositphotos.com/1644863/17683/i/450/depositphotos_176830636-stock-photo-empty-classroom-interior.jpg",
                 "hotSpots": [
                     {
                         "pitch": 0,
@@ -224,7 +248,7 @@
             },
             "aula4": {
                 "type": "equirectangular",
-                "panorama": "https://st2.depositphotos.com/1036149/11579/i/450/depositphotos_115799086-stock-photo-modern-classroom-with-laptops.jpg",
+                "panorama": "https://st3.depositphotos.com/1644863/17683/i/450/depositphotos_176830636-stock-photo-empty-classroom-interior.jpg",
                 "hotSpots": [
                     {
                         "pitch": 0,
@@ -237,7 +261,7 @@
             },
             "direccion": {
                 "type": "equirectangular",
-                "panorama": "https://st3.depositphotos.com/12345678/12345/i/450/depositphotos_123456789-stock-photo-office-reception.jpg",
+                "panorama": "https://st3.depositphotos.com/11352860/36542/i/450/depositphotos_365426576-stock-photo-office-reception-area.jpg",
                 "hotSpots": [
                     {
                         "pitch": 0,
