@@ -38,7 +38,7 @@
 
         async function loadImages(page = 1) {
             try {
-                const response = await fetch('https://api3-estadia.onrender.com/images/');
+                const response = await fetch('https://api3-estadia-q8rc.onrender.com/images/');
                 if (!response.ok) throw new Error('Error al cargar imágenes');
                 const images = await response.json();
                 const collageDiv = document.getElementById('collage');

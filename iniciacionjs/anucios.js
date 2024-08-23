@@ -1,6 +1,6 @@
 const fetchAnuncios = async (page = 1) => {
     try {
-        const response = await fetch(`https://api3-estadia.onrender.com/anuncios?page=${page}&size=4`);
+        const response = await fetch(`https://api3-estadia-q8rc.onrender.com/anuncios?page=${page}&size=4`);
         if (!response.ok) throw new Error('Error en la solicitud');
         const data = await response.json();
 
