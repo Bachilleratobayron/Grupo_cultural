@@ -1,4 +1,4 @@
-const NEWS_API_URL = 'https://api2-estadia.onrender.com/news';
+const NEWS_API_URL = 'https://api2-estadia-kcpb.onrender.com/news';
 const NEWS_PER_PAGE = 4;
 let currentNewsPage = 1;
 let totalNewsPages = 1;
