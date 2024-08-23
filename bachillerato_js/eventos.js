@@ -3,7 +3,7 @@ const eventosPorPagina = 2;
 
 async function obtenerEventos() {
     const skip = (paginaActual - 1) * eventosPorPagina;
-    const response = await fetch(`https://api1-estadia.onrender.com/eventos?skip=${skip}&limit=${eventosPorPagina}`);
+    const response = await fetch(`https://api1-estadia-upk3.onrender.com/eventos?skip=${skip}&limit=${eventosPorPagina}`);
     const eventos = await response.json();
     const container = document.getElementById('eventos-container');
     container.innerHTML = '';

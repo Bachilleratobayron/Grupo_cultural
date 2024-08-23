@@ -1,6 +1,6 @@
 async function loadImages() {
     try {
-        const response = await fetch('https://api1-estadia.onrender.com/images');
+        const response = await fetch('https://api1-estadia-upk3.onrender.com/images');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -29,7 +29,7 @@ async function loadImages() {
             if (index === 0) item.classList.add('active');
             
             const img = document.createElement('img');
-            img.src = `https://api1-estadia.onrender.com${image.url}`;
+            img.src = `https://api1-estadia-upk3.onrender.com${image.url}`;
             img.classList.add('d-block', 'w-100');
             
             item.appendChild(img);
